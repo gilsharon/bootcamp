@@ -63,7 +63,7 @@ def dna2protein(orf):
     convert DNA seq to protein seq
     '''
     orf_protein = ''
-    for i in list(range(int(len(orf)/3))):
+    for i in list(range(int(len(orf)/3)))[:-2]:
         current_codon = orf[i*3:(i+1)*3]
         orf_protein += bd.codons[current_codon]
     return orf_protein
