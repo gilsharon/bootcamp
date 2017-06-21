@@ -1,5 +1,5 @@
 '''
-convert DNA to RNA
+convert DNA to RNA; returns similar capitalization as input
 '''
 
 def rna(seq):
