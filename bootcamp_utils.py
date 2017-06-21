@@ -21,15 +21,3 @@ def ecdf(filename):
     y = np.arange(1,len(data)+1)/ len(data)
 
     return x, y
-
-def normality(filename):
-    '''
-    check normal distribution for dataset
-    '''
-    data = np.loadtxt(filename,comment='#')
-
-    # Make smooth x-values
-    x = np.linspace(1600, 2500, 400)
-
-    # Compute theoretical Normal distribution
-    cdf_theor = scipy.stats.norm.cdf(x, loc=np.mean(data), scale=np.std(data))
