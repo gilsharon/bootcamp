@@ -18,3 +18,11 @@ def ecdf(data):
     y = np.arange(1,len(data)+1)/ len(data)
 
     return x, y
+
+def bs_replicate(data, func = np.mean):
+    '''
+    compute a bootstrap replicate from data
+    '''
+
+    bs_sample = np.random.choice(data, replace=True, size=len(data))
+    return func(bs_sample)
