@@ -9,13 +9,10 @@ colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728',
 sns.set(style='whitegrid', palette=colors, rc={'axes.labelsize': 16})
 
 
-def ecdf(filename):
+def ecdf(data):
     '''
     return X and y values for ECDF plotting
     '''
-
-    # load data
-    data = np.loadtxt(filename, comments='#')
 
     x = np.sort(data)
     y = np.arange(1,len(data)+1)/ len(data)
