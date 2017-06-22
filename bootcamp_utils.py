@@ -21,8 +21,14 @@ def ecdf(data):
 
 def bs_replicate(data, func = np.mean):
     '''
-    compute a bootstrap replicate from data
+    compute a bootstrap replicate from data for a function func
     '''
 
     bs_sample = np.random.choice(data, replace=True, size=len(data))
     return func(bs_sample)
+
+def draw_bs_reps(data, func=np.mean, size=10000):
+    '''
+    draw bootstrap replicates from 1D data
+    '''
+    return np.array([bs_replicate(data, func=func) for _ in range(size)])
