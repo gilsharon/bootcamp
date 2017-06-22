@@ -36,5 +36,5 @@ tcdf_high, = ax.plot(x, cdf_theor_high, color = 'darkgray', label = 'High - theo
 ecdf_high, = ax.plot(edcf_high[0], edcf_high[1], label = 'High Food',
         marker = '.', linestyle='none')
 
-legend = ax.legend(handles=[tcdf_high,ecdf_high,tcdf_low,ecdf_low])
+legend = ax.legend(loc ='lower right', handles=[tcdf_high,ecdf_high,tcdf_low,ecdf_low])
 plt.show()
