@@ -87,14 +87,17 @@ def bohr_plot(ax = ax):
     ax.set_ylabel('Expression Fold Change')
     ax.plot(BP, theoreticalFC, marker = '.', linestyle = 'none', color = 'gray')
 
+wt_dataset, q18a_dataset, q18m_dataset = get_data()
+
 def bohr_by_IPTG(ax = ax):
     '''
     calculate and plor bohr by IPTG concentration and r/k
     '''
-    iptg = np.logspace(-5,2,1000)
-    for dataset in [('wt',141.5), ('q18a',16.56), ('q18m',1332)]:
-        BP = bohr_parameter(iptg,dataset[1])
-        FC = fold_change_bohr(BP)
-        ax.plot(BP, FC, marker = '.', linestyle = 'none', label = dataset[0], alpha = 0.5)
+    wt_dataset, q18a_dataset, q18m_dataset = get_data()
+
+    for dataset in [('wt',141.5, wt_dataset), ('q18a',16.56, q18a_dataset),
+                    ('q18m',1332, q18m_dataset)]:
+        BP = bohr_parameter(dataset[2][:,0],dataset[1])
+        ax.plot(BP, dataset[2][:,1], marker = '.', linestyle = 'none', label = dataset[0])
     plt.legend()
     plt.show()
