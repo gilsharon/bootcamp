@@ -2,7 +2,7 @@ import pytest
 import seq_features
 
 def test_n_neg_for_single_E_or_D():
-    """Perform unit tests on n_neg."""
+    """Perform unit tests on n_neg....."""
 
     assert seq_features.n_neg('E') == 1
     assert seq_features.n_neg('D') == 1
